@@ -1,7 +1,7 @@
 # Ch.1 Overview of iOS
 
 ## iOS 계층구조
-![계층구조](Lecture/01_Overview_of_iOS/images/1.png)
+![계층구조](/Lecture/01_Overview_of_iOS/images/1.png)
 
 ### Core OS
 - 하드웨어와 가장 가까이 있는 최하위 계층
@@ -47,4 +47,4 @@
 > ex) func flipCard(emoji: String, button: UIButton)<br>
 > emoji라는 인자와 button이라는 인자 둘다 하나씩 지정하였는데 이는 내부인자와 외부 인자 모두 같은 인자를 사용한다는 것을 의미한다.
 
-![결과 화면](Lecture/01_Overview_of_iOS/images/3.gif)
+![결과 화면](/Lecture/01_Overview_of_iOS/images/3.gif)
