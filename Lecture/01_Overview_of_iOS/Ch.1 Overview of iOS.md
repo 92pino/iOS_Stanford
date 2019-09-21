@@ -47,4 +47,16 @@
 > ex) func flipCard(emoji: String, button: UIButton)<br>
 > emoji라는 인자와 button이라는 인자 둘다 하나씩 지정하였는데 이는 내부인자와 외부 인자 모두 같은 인자를 사용한다는 것을 의미한다.
 
+**초기화 방법**
+- 초기값을 지정해주기
+- init 사용하여 초기화시키기
+
+- Outlet은 인스턴스 생성, Action은 메서드를 생성
+
+### 프로퍼티 감시자
+- didSet
+    > - 속성의 변화를 감시하면서 값이 변경될때마다 계속 업데이트시킴
+    > - UI와 인스턴스 변수의 싱크를 맞추기 위해 사용
+
+
 ![결과 화면](/Lecture/01_Overview_of_iOS/images/3.gif)
