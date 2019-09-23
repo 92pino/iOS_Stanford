@@ -42,6 +42,7 @@ class Concentration {
         
         // TODO: - Shuffle the cards
         // 스스로 카드 섞어보기
-        
+        // shuffle : 배열.shuffle() --> 컬렉션 요소를 랜덤하게 섞어준다.
+        cards.shuffle()
     }
 }

@@ -12,6 +12,7 @@
 ## MVC (Model-View-Controller)
 
 > MVC 구조 (Model - View - Controller)는 프로그램을 짜는 대표적인 디자인 패턴 중 하나
+![MVC](/Lecture/02_Model_View_Controller(MVC)/images/1.png)
 
 - Model 
     - '무엇'에 해당하는 UI와는 독립적인 객체들로 앱의 비즈니스 로직과 데이터를 관장하는 영역
@@ -47,3 +48,7 @@
 > 구조체는 모든 멤버변수를 초기화할 수 있는 공짜 이니셜라이저가 존재한다 vs 클래스는 공짜 이니셜라이저가 존재하지 않는다.
 > - 구조체 : 받는 공짜 이니셜라이저는 모든 변수를 초기화한다.
 > - 공짜 이니셜라이저 : 모든 변수들이 초기화되면 인수가 없는 init을 자동으로 생성
+
+## 결과 화면
+
+![결과 화면](/Lecture/02_Model_View_Controller(MVC)/images/2.gif)
