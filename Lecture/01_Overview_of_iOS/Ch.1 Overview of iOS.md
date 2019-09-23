@@ -68,5 +68,6 @@
 > 옵셔널을 풀기 위해 강제로 !를 사용하는것은 좋지 않음
 > guard let, if let을 사용하여 옵셔널 해제하는걸 지향
 
+## 결과화면
 
-![결과 화면](/Lecture/01_Overview_of_iOS/images/3.gif)
+<img src="/Lecture/01_Overview_of_iOS/images/3.gif" width = "250" alt="결과화면">

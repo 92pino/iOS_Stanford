@@ -51,4 +51,4 @@
 
 ## 결과 화면
 
-![결과 화면](/Lecture/02_Model_View_Controller(MVC)/images/2.gif)
+<img src="/Lecture/02_Model_View_Controller(MVC)/images/2.gif" width = "250" alt="결과화면">
