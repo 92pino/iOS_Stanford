@@ -24,7 +24,7 @@
 > |:---:|:---|:---:|:---:|:---|
 > |1|[Overview of iOS](Lecture/01_Overview_of_iOS/Slides/Lecture-1-Slides.pdf)|[![재생 url](art/play.png?raw=true)](https://www.edwith.org/swiftapp/lecture/26619/)|[![source url](art/Xcode.png?raw=true)](/Lecture/01_Overview_of_iOS/Concentration)| [Swift 11, Xcode 9와 Swift 4 소개](/Lecture/01_Overview_of_iOS/Ch.1%20Overview%20of%20iOS.md) |
 > |2|[Model View Controller(MVC)](Lecture/02_Model_View_Controller(MVC)/Slides/Lecture-2-Slides.pdf)|[![재생 url](art/play.png?raw=true)](https://www.edwith.org/swiftapp/lecture/26620/)|[![source url](art/Xcode.png?raw=true)](/Lecture/02_Model_View_Controller(MVC)/Concentration)| [MVC(Model-View-Controller) 패턴](/Lecture/02_Model_View_Controller(MVC)/Ch.2%20Model_View_Controller(MVC).md) |
-<!-- > |1|[Overview of iOS]()|[![](art/play.png?raw=true)](https://www.edwith.org/swiftapp/lecture/26619/)|[![](art/xcode.png?raw=true)]()| Swift 11, Xcode 9와 Swift 4 소개 | -->
+ > |3|[Swift Programming Language - part 1]()|[![](art/play.png?raw=true)](https://www.edwith.org/swiftapp/lecture/19418/)|[![](art/xcode.png?raw=true)]()| Swift 프로그래밍 언어 - Part 1 | 
 
 ## Reference
 - [edwith]()
