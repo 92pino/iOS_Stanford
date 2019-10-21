@@ -29,23 +29,23 @@
 - extension에 프로토콜을 채택하여 사용할 수 있다.
 
 ### 프로토콜 선언 방식
-    1. 클래스, 열거형이나 구조체 선언과 같은 선언 방식
-        - 리턴 값을 가지는 메소드와 변수의 리스트
-    2. 클래스나 구조체나 열거형이 프로토콜의 메소드와 변수를 구현하는 것
-    3. 클래스나 구조체, 열거형 등의 구조 내부에 구성
+1. 클래스, 열거형이나 구조체 선언과 같은 선언 방식
+    - 리턴 값을 가지는 메소드와 변수의 리스트
+2. 클래스나 구조체나 열거형이 프로토콜의 메소드와 변수를 구현하는 것
+3. 클래스나 구조체, 열거형 등의 구조 내부에 구성
 
-    ```swift
-    // 프로토콜 선언 예시
-    // someProtocol : 프로토콜의 이름
-    // InheritedProtocol1,2 : SomeProtocol이 상속받는 다른 프로토콜들로 몇개든 상속받을수 있다.
-    // SomeProtocol을 구현하기 위해서는 InheritedProtocol1, 2 모두 충족시켜야한다.
-    protocol SomeProtocol: InheritedProtocol1, InheritedProtocol2 {
-        var someProperty: Int { get set }
-        func aMethod(arg1: Double, anotherArgument: String) -> SomeType
-        mutating func changeIt()
-        init(arg: Type)
-    }
-    ```
+```swift
+// 프로토콜 선언 예시
+// someProtocol : 프로토콜의 이름
+// InheritedProtocol1,2 : SomeProtocol이 상속받는 다른 프로토콜들로 몇개든 상속받을수 있다.
+// SomeProtocol을 구현하기 위해서는 InheritedProtocol1, 2 모두 충족시켜야한다.
+protocol SomeProtocol: InheritedProtocol1, InheritedProtocol2 {
+    var someProperty: Int { get set }
+    func aMethod(arg1: Double, anotherArgument: String) -> SomeType
+    mutating func changeIt()
+    init(arg: Type)
+}
+```
 
 ```swift
 protocol Moveable {
@@ -73,4 +73,40 @@ let square: Shape = Shape()
 // prius를 참조하는 thingToMove
 var thingToMove: Moveable = prius
 thingToMove.move(to:...)    // prius의 move(to: )가 실행된다.
+thingToMove.changeOil()     // thingToMove 인스턴스는 Moveable 타입이므로 Car에만 있는 메서드는 실행 불가, 프로토콜 내부에 있는 메서드만 실행 가능
+
+// prius, square을 Moveable 타입 배열로 받을 수 있다.
+// 둘다 Moveable 프로토콜을 준수하는 인스턴스이기 때문이다.
+let thingsToMove: [Moveable] = [prius, square]
+
+func slide(slider: Moveable) {
+    let positionToSlideTo = ...
+    slider.move(to: positionToSlideTo)
+}
+slide(prius)
+slide(square)
 ```
+
+## MVC Delegation
+- Protocol을 사용하면 
+
+### MVC Delegation 6가지 과정
+1. 스크롤뷰나 테이블 뷰 같이 델리게이션 프로토콜을 선언한다. ex) will, should, did
+```swift
+// delegate 변수를 weak로 설정
+// -> 사용하지 않고, 힙에서 빠져나가려 한다면 nil로 설정하고 더이상 사용하지 않는다.
+weak var delegate: UIScrollViewDelegate?
+```
+2. 스크롤뷰나 테이블뷰는 자기 안에 변수를 생성합니다. 이 델리게이트 변수는 공개 변수이고, weak 속성을 가지고 있습니다. (옵셔널인 동시에 그 프로토콜을 타입으로 가지게 된다.)
+3. 뷰가 will, did, should를 보내고 싶을 때 그 변수에 보내주기만 하면 된다.
+    > 해당하는 프로토콜을 타입으로 가지기 때문에 모든 will, did, should를 이해할 수 있다.
+4. 컨트롤러가 프로토콜을 채택한다.
+```swift
+class MyViewController: UIViewController, UIScrollViewDelegate { ... }
+```
+5. 자기 자신을 델리게이트 변수로 설정한다. (델리게이트 변수가 자기 자신)
+    > 컨트롤러가 그 델리게이트를 구현하기로 선언했고, 델리게이트는 그 프로토콜을 타입으로 가지기 때문
+    ```swift
+    scrollView.delegate = self
+    ```
+6. 컨트롤러는 프로토콜의 모든 메소드를 구현한다.
