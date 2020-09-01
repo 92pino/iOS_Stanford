@@ -92,21 +92,46 @@ slide(square)
 
 ### MVC Delegation 6가지 과정
 1. 스크롤뷰나 테이블 뷰 같이 델리게이션 프로토콜을 선언한다. ex) will, should, did
-```swift
-// delegate 변수를 weak로 설정
-// -> 사용하지 않고, 힙에서 빠져나가려 한다면 nil로 설정하고 더이상 사용하지 않는다.
-weak var delegate: UIScrollViewDelegate?
-```
+    ```swift
+    // delegate 변수를 weak로 설정
+    // -> 사용하지 않고, 힙에서 빠져나가려 한다면 nil로 설정하고 더이상 사용하지 않는다.
+    weak var delegate: UIScrollViewDelegate?
+    ```
 2. 스크롤뷰나 테이블뷰는 자기 안에 변수를 생성합니다. 이 델리게이트 변수는 공개 변수이고, weak 속성을 가지고 있습니다. (옵셔널인 동시에 그 프로토콜을 타입으로 가지게 된다.)
 3. 뷰가 will, did, should를 보내고 싶을 때 그 변수에 보내주기만 하면 된다.
     > 해당하는 프로토콜을 타입으로 가지기 때문에 모든 will, did, should를 이해할 수 있다.
 4. 컨트롤러가 프로토콜을 채택한다.
-```swift
-class MyViewController: UIViewController, UIScrollViewDelegate { ... }
-```
+    ```swift
+    class MyViewController: UIViewController, UIScrollViewDelegate { ... }
+    ```
 5. 자기 자신을 델리게이트 변수로 설정한다. (델리게이트 변수가 자기 자신)
     > 컨트롤러가 그 델리게이트를 구현하기로 선언했고, 델리게이트는 그 프로토콜을 타입으로 가지기 때문
     ```swift
     scrollView.delegate = self
     ```
 6. 컨트롤러는 프로토콜의 모든 메소드를 구현한다.
+
+## Hashable
+- 해시 가능하다는 말은 딕셔너리의 키가 될 수 있다.
+- Hashable은 해시테이블 등에서 고유한 Hash같아 보이지만 그것을 보장할 수 없다.
+    > 이를 확실히 보장하기 위해 등호를 통해 서로 동일한지 비교할 필요하 있다. 그래서 Equatable 프로토콜을 준수한다.
+
+```swift
+protocol Hashable: Equatable {
+    var hashValue: Int { get }
+}
+
+protocol Equatable {
+    // lhs : 좌변, rhs : 우변
+    // self는 현재 타입을 의미한다.
+    static func ==(lhs: Self, rhs: Self) -> Bool
+}
+```
+
+## Dictionary
+- 딕셔너리는 제네릭 타입
+    ```swift
+    Dictionary<Key: Hashable, Value>
+    ```
+
+## 프로토콜의 다중상속 효과
